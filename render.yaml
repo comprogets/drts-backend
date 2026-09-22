@@ -1,0 +1,19 @@
+# Optional: lets Render provision this service (with its disk) automatically from
+# "New + -> Blueprint" instead of clicking through the settings by hand. Either way works.
+services:
+  - type: web
+    name: nst-docsys-backend
+    runtime: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    plan: starter
+    disk:
+      name: nst-docsys-data
+      mountPath: /opt/render/project/src/data
+      sizeGB: 1
+    envVars:
+      - key: API_KEY
+        sync: false
+      - key: ALLOWED_ORIGIN
+        sync: false
