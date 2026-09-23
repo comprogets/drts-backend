@@ -4,7 +4,6 @@ services:
   - type: web
     name: nst-docsys-backend
     runtime: node
-    rootDir: backend
     buildCommand: npm install
     startCommand: npm start
     plan: starter
