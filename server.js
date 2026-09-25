@@ -44,8 +44,6 @@ const pool = mysql.createPool({
 });
 function checkApiKey(req, res, next) {
   if (!API_KEY) return next(); // no key configured = open (matches old server's default)
-  console.log('DEBUG - received:', JSON.stringify(req.headers['x-api-key']), 'length:', req.headers['x-api-key']?.length);
-  console.log('DEBUG - expected:', JSON.stringify(API_KEY), 'length:', API_KEY?.length);
   if (req.headers['x-api-key'] !== API_KEY) {
     return res.status(401).json({ error: 'Invalid or missing API key' });
   }
