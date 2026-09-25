@@ -38,6 +38,9 @@ const pool = mysql.createPool({
   database: DB_NAME,
   waitForConnections: true,
   connectionLimit: 10,
+  ssl: {
+    rejectUnauthorized: false, // Aiven requires SSL; this matches the run-schema.js fix
+  },
 });
 
 function checkApiKey(req, res, next) {
