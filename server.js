@@ -23,7 +23,7 @@ const {
 } = process.env;
 
 const app = express();
-app.use(express.json({ limit: '10mb' })); // the blob can grow; raise if you hit 413s
+app.use(express.json({ limit: '50mb' })); // the blob can grow; raise if you hit 413s
 app.use(
   cors({
     origin: ALLOWED_ORIGIN ? ALLOWED_ORIGIN.split(',').map((s) => s.trim()) : '*',
